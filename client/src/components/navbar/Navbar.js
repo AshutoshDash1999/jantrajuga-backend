@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -42,10 +42,17 @@ const Navbar = () => {
               <h2 className='logo text-2xl'>UtkalMart</h2>
             </Link>
           </Box>
-          <Box display={isMobile ? 'none' : 'block'}>
+          <Box display={isMobile ? 'none' : 'block'} sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
             {/* <Link to='/dashboard' className='nav-link'>
               Dashboard
             </Link> */}
+            
+            <TextField style={{marginRight:"1rem"}} id="standard-basic" label="Search item" variant="filled" />
+            
             <Link to='/contact' className='nav-link'>
               Contact
             </Link>
