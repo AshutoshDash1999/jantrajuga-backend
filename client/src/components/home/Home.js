@@ -3,8 +3,8 @@ import Categories from '../categories/Categories';
 
 const Home = () => {
   return (
-    <Container>
-      <div className=''>
+    <Container> 
+      <div className='' style={{height:"80vh"}}>
         <h2>Suggested Categories</h2>
         <Categories/>
       </div>

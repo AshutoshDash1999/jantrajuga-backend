@@ -24,7 +24,7 @@ const Categories = () => {
     },
   ];
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       {categories.map((item, index) => {
         let rotate = 1;
         rotate *= 50 * index;
@@ -36,7 +36,7 @@ const Categories = () => {
               filter: `hue-rotate(${rotate}deg)`,
             }}
           >
-            <h2 className="text-2xl font-medium">{item.name}</h2>
+            <h2 className="text-2xl font-bold text-gray-700">{item.name}</h2>
           </div>
         );
       })}
