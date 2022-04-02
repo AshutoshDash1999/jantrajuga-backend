@@ -1,25 +1,25 @@
 import React from "react";
 
-const Categories = () => {
+const SuggestedVendor = () => {
   const categories = [
     {
-      name: "Handicraft",
+      name: "VendorA",
       colorCode: "#BAE6FD",
     },
     {
-      name: "Handlooms",
+      name: "VendorB",
       colorCode: "#E9D5FF",
     },
     {
-      name: "Paintings",
+      name: "VendorC",
       colorCode: "#E9D5FF",
     },
     {
-      name: "Electronics",
+      name: "VendorD",
       colorCode: "#E9D5FF",
     },
     {
-      name: "Kitchen",
+      name: "VendorE",
       colorCode: "#E9D5FF",
     },
   ];
@@ -27,12 +27,12 @@ const Categories = () => {
     <div className="flex justify-center ">
       {categories.map((item, index) => {
         let rotate = 1;
-        rotate *= 50 * index;
+        rotate *= 75 * index;
         return (
           <div
             className="transition ease-in-out delay-550 p-12 m-4 rounded-lg cursor-pointer flex-auto shadow-md hover:shadow-xl"
             style={{
-              background: "rgb(167,243,208)",
+              background: "rgb(221, 214, 254)",
               filter: `hue-rotate(${rotate}deg)`,
             }}
           >
@@ -44,4 +44,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default SuggestedVendor;
