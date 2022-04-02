@@ -5,6 +5,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
+import SearchResult from './components/searchResult/SearchResult';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Vlogin from './components/vendor/login';
@@ -66,6 +67,7 @@ export default function App() {
           <Route path='/vendor/signup' element={<Vsignup />} />
           <Route path='/vendor/login' element={<Vlogin />} />
           <Route path='/vendor/addProduct' element={<Vaddproduct/>} />
+          <Route path="/searchResult" element={<SearchResult/>} />
         </Routes>
         {/* <Footer /> */}
       </Router>
