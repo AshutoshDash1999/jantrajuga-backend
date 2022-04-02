@@ -19,7 +19,7 @@ const Footer = () => {
           }}
         >
           <div>
-            <h2>Machao</h2>
+            <h2>UtkalMart</h2>
             <p>About Company</p>
             <Box
               sx={{
@@ -74,7 +74,7 @@ const Footer = () => {
         </Box>
         <div className='text-center'>
           <p>
-            Copyright © 2021 <strong>Machao</strong> All rights reserved
+            Copyright © 2021 <strong>UtkalMart</strong> All rights reserved
           </p>
         </div>
       </Container>

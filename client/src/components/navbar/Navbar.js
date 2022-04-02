@@ -39,7 +39,7 @@ const Navbar = () => {
         >
           <Box>
             <Link to='/' className='nav-link'>
-              <h2 className='logo'>Machao</h2>
+              <h2 className='logo text-2xl'>UtkalMart</h2>
             </Link>
           </Box>
           <Box display={isMobile ? 'none' : 'block'}>
