@@ -10,6 +10,7 @@ var dbb = require('./configuration/collection');
 
 //Routes
 var userRoutes = require('./routes/user_routes')
+var vendorRoutes = require('./routes/vendor_routes')
 
 app.set('port', (process.env.PORT || 9000));
 app.use(cors());
@@ -34,3 +35,4 @@ app.get('/', function (req, res) {
 
 // configuring routes
 userRoutes.configure(app, mongo, ObjectID, url, assert, dbb)
+vendorRoutes.configure(app, mongo, ObjectID, url, assert, dbb)
