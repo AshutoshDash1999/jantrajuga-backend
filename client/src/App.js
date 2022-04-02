@@ -40,14 +40,17 @@ const reducer = (state, { type, user }) => {
 export default function App() {
   const [user, dispatch] = useReducer(reducer, initialState);
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(displayLocationInfo);
+    navigator.geolocation.getCurrentPosition(displayLocationInfo, handleLocationError);
   }
   
   function displayLocationInfo(position) {
     const lng = position.coords.longitude;
     const lat = position.coords.latitude;
-  
     console.log(`longitude: ${ lng } | latitude: ${ lat }`);
+  }
+
+  function handleLocationError(){
+    alert("We use your location info to show personlized content, which will be helpful for effective use of our service. Please change your setting to enable geo olocation")
   }
 
   return (
@@ -64,7 +67,7 @@ export default function App() {
           <Route path='/vendor/login' element={<Vlogin />} />
           <Route path='/vendor/addProduct' element={<Vaddproduct/>} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </UserContext.Provider>
   );
