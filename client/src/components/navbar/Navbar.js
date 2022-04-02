@@ -86,7 +86,7 @@ const Navbar = () => {
                 label="Search item"
                 variant="filled"
               />
-              <Button variant="contained">Search</Button>
+              <Button variant="contained" style={{padding: " 0.5rem 2.3rem", marginRight: "1rem"}}>Search</Button>
             </Stack>
 
             <Link to="/contact" className="nav-link">
