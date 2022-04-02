@@ -1,8 +1,11 @@
 {
   "name": "jantrajuga-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "an awesome app made in jantra juga",
   "main": "index.js",
+  "engines": {
+    "node": "16.13.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
