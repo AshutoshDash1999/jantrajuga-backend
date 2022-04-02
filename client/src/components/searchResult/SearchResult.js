@@ -1,7 +1,25 @@
 import React, { useState } from "react";
+import axios from 'axios'
 
 const SearchResult = () => {
   const [result, setResult] = useState([]);
+
+  const products = async () => {
+    try {
+      let { data } = await axios.post(
+        'https://machao-backend.herokuapp.com/products'
+        
+      );
+      console.log(data);
+
+      }catch (error) {
+      
+      console.log(error);
+    }
+  };
+
+  products()
+
   return (
     <>
       <div className="w-3/4 flex justify-center flex-col items-center content-center m-auto">
