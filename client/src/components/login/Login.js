@@ -38,7 +38,7 @@ const Login = () => {
       dispatch({ type: 'LOGIN', user: user });
 
       setErrorMessage(data.message);
-      if (data.status === true) navigate('/dashboard');
+      if (data.status === true) navigate('/');
     } catch (error) {
       setErrorMessage(error.message);
       console.log(error);

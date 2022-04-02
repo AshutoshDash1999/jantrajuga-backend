@@ -99,11 +99,11 @@ const Navbar = () => {
             ) : (
               <>
                 <Link to="/login" className="nav-link">
-                  Login
+                  Login/Signup
                 </Link>
-                <Link to="/signup" className="nav-link">
+                {/* <Link to="/signup" className="nav-link">
                   Signup
-                </Link>
+                </Link> */}
               </>
             )}
           </Box>
