@@ -1,0 +1,25 @@
+{
+  "name": "jantrajuga-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshutoshDash1999/jantrajuga-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AshutoshDash1999/jantrajuga-backend/issues"
+  },
+  "homepage": "https://github.com/AshutoshDash1999/jantrajuga-backend#readme",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongodb": "^4.4.1"
+  }
+}
