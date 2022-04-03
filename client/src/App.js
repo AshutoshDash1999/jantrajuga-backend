@@ -6,7 +6,7 @@ import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import SearchResult from './components/searchResult/SearchResult';
-import Navbar from './components/navbar/Navbar';
+// import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Vlogin from './components/vendor/login';
 import Vsignup from './components/vendor/signup';
@@ -62,7 +62,6 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user, dispatch }}>
       <Router>
-        <Navbar />
         <Routes>
           <Route path='/' index element={<Home />} />
           <Route path='/dashboard' element={<Dashboard />} />
