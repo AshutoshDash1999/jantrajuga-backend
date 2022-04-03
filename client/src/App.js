@@ -15,6 +15,8 @@ import Product_spec from './components/buypage/buypage'
 import { useReducer } from 'react';
 import { UserContext } from './userContext';
 import VendorProductList from './components/vendor/VendorProductList';
+import GangotriHandlooms from './components/vendorProductListings.js/GangotriHandlooms/GangotriHandlooms';
+import GaddaElectronics from "./components/vendorProductListings.js/GaddaElectronics/GaddaElectronics"
 
 const initialState = {
   isAuthenticated: false,
@@ -71,7 +73,9 @@ export default function App() {
           <Route path='/vendor/addProduct' element={<Vaddproduct/>} />
           <Route path="/searchResult" element={<SearchResult/>} />
           <Route path="/buypage" element={<Product_spec/>}/>
-          <Route path="/vendorProductList" element={<VendorProductList/>}/>
+          <Route path="/vendorProductList/:vendorId" element={<VendorProductList/>}/>
+          <Route path='./GangotriHandlooms' element={<GangotriHandlooms/>}/>
+          <Route path="./GaddaElectronics" element={<GaddaElectronics/>}/>
         </Routes>
         {/* <Footer /> */}
       </Router>

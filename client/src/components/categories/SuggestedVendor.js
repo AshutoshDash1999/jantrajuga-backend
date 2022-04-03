@@ -41,7 +41,7 @@ const SuggestedVendor = () => {
            onClick={()=>{
             setVendorId(item.vendorid);
             setIsVendorClicked(true)
-            navigate('/GaddaElectronics')
+            navigate('/searchResult')
            }}
             className="transition ease-in-out delay-550 p-12 m-4 rounded-lg cursor-pointer flex flex-col justify-center items-center flex-auto shadow-md hover:shadow-xl"
             style={{
