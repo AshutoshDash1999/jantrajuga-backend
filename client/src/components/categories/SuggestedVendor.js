@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Grid from "@mui/material/Grid";
 import VendorProductList from "../../components/vendor/VendorProductList";
+import { Navigator, useNavigate } from "react-router-dom";
 
 const SuggestedVendor = () => {
+  const navigate = useNavigate();
   const [vendorList, setVendorList] = useState([]);
   const [isVendorClicked, setIsVendorClicked] = useState(false);
   const [vendorId, setVendorId] = useState("");
+  {
+    isVendorClicked && <VendorProductList vendorId={vendorId} />
+  }
   const vendors = async() => {
     try {
       let { data } = await axios.post(
@@ -24,9 +29,7 @@ const SuggestedVendor = () => {
 
   return (
     <div className="flex justify-center ">
-      {
-        isVendorClicked && <VendorProductList vendorId={vendorId} />
-      }
+      
       {vendorList.map((item, index) => {
         let rotate = 1;
         rotate *= 75 * index;
@@ -35,6 +38,7 @@ const SuggestedVendor = () => {
            onClick={()=>{
             setVendorId(item.vendorid);
             setIsVendorClicked(true)
+            navigate('/vendorProductList')
            }}
             className="transition ease-in-out delay-550 p-12 m-4 rounded-lg cursor-pointer flex flex-col justify-center items-center flex-auto shadow-md hover:shadow-xl"
             style={{

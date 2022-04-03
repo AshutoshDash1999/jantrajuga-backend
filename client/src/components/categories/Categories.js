@@ -30,6 +30,7 @@ const Categories = () => {
         rotate *= 50 * index;
         return (
           <div
+            key={index}
             className="transition ease-in-out delay-550 p-12 m-4 rounded-lg cursor-pointer flex-auto shadow-md hover:shadow-xl "
             style={{
               background: "rgb(167,243,208)",

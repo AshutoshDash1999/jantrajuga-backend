@@ -13,8 +13,8 @@ const VendorProductList = ({vendorId}) => {
             vendorid: vendorId
           }
         );
-        console.log(data);
-        setProductList(data);
+        console.log(data.result);
+        setProductList(data.result);
       } catch (error) {
         
         console.log(error);

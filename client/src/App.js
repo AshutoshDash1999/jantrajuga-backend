@@ -14,6 +14,7 @@ import Vaddproduct from './components/vendor/AddProduct';
 import Product_spec from './components/buypage/buypage'
 import { useReducer } from 'react';
 import { UserContext } from './userContext';
+import VendorProductList from './components/vendor/VendorProductList';
 
 const initialState = {
   isAuthenticated: false,
@@ -70,6 +71,7 @@ export default function App() {
           <Route path='/vendor/addProduct' element={<Vaddproduct/>} />
           <Route path="/searchResult" element={<SearchResult/>} />
           <Route path="/buypage" element={<Product_spec/>}/>
+          <Route path="/vendorProductList" element={<VendorProductList/>}/>
         </Routes>
         {/* <Footer /> */}
       </Router>
