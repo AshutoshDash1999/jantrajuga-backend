@@ -1,36 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import Grid from "@mui/material/Grid";
 
 const SuggestedVendor = () => {
-  const categories = [
-    {
-      name: "VendorA",
-      colorCode: "#BAE6FD",
-    },
-    {
-      name: "VendorB",
-      colorCode: "#E9D5FF",
-    },
-    {
-      name: "VendorC",
-      colorCode: "#E9D5FF",
-    },
-    {
-      name: "VendorD",
-      colorCode: "#E9D5FF",
-    },
-    {
-      name: "VendorE",
-      colorCode: "#E9D5FF",
-    },
-  ];
+  const [vendorList, setVendorList] = useState([]);
+
+  const vendors = async() => {
+    try {
+      let { data } = await axios.post(
+        "https://machao-backend.herokuapp.com/all_vendors"
+      );
+      console.log(data.result);
+      setVendorList(data.result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  vendors();
+
   return (
     <div className="flex justify-center ">
-      {categories.map((item, index) => {
+      {vendorList.map((item, index) => {
         let rotate = 1;
         rotate *= 75 * index;
         return (
-          <div
-            className="transition ease-in-out delay-550 p-12 m-4 rounded-lg cursor-pointer flex-auto shadow-md hover:shadow-xl"
+          <div key={index}
+            className="transition ease-in-out delay-550 p-12 m-4 rounded-lg cursor-pointer flex flex-col justify-center items-center flex-auto shadow-md hover:shadow-xl"
             style={{
               background: "rgb(221, 214, 254)",
               filter: `hue-rotate(${rotate}deg)`,
