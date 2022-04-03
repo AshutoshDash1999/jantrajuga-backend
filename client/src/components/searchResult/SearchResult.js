@@ -19,7 +19,7 @@ const SearchResult = () => {
   useEffect(() => {
     products();
 
-  })  //   console.log(result);
+  }) 
 
   return (
     <>
