@@ -213,8 +213,7 @@ const Home = () => {
                 }}
               />
               <h3 style={{ verticalAlign: "middle" }}>
-                {address.locality}, {address.principalSubdivision},
-                {address.countryName}
+                {address.locality}, {address.principalSubdivision}, {address.countryName}
               </h3>
             </div>
             <h2 className="font-bold text-gray-700 text-2xl underline underline-offset-1">
