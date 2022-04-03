@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import store from "store";
 
-const VendorProductList = ({vendorId}) => {
+const VendorProductList = ({}) => {
     const [productList, setProductList] = useState([]);
+
+    const data = store.get('user')
+    console.log(data);
 
     const vendor_product = async () => {
       try {
         let { data } = await axios.post(
           'https://machao-backend.herokuapp.com/specific_products',
           {
-            vendorid: vendorId
+            vendorid: ''
           }
         );
         console.log(data.result);
