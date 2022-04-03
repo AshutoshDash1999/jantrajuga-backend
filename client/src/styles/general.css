@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap');
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Nunito', sans-serif;;
+}
+h2{
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
+.prod_image{
+ 
+    height: 380px;
+    
+    border-radius: 10px;
+    text-align: center;
+
+}

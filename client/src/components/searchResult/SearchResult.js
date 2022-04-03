@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Grid from "@mui/material/Grid";
 
@@ -16,8 +16,10 @@ const SearchResult = () => {
       console.log(error);
     }
   };
+  useEffect(() => {
     products();
-  //   console.log(result);
+
+  })  //   console.log(result);
 
   return (
     <>

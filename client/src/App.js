@@ -11,6 +11,7 @@ import Footer from './components/footer/Footer';
 import Vlogin from './components/vendor/login';
 import Vsignup from './components/vendor/signup';
 import Vaddproduct from './components/vendor/AddProduct';
+import Product_spec from './components/buypage/buypage'
 import { useReducer } from 'react';
 import { UserContext } from './userContext';
 
@@ -68,6 +69,7 @@ export default function App() {
           <Route path='/vendor/login' element={<Vlogin />} />
           <Route path='/vendor/addProduct' element={<Vaddproduct/>} />
           <Route path="/searchResult" element={<SearchResult/>} />
+          <Route path="/buypage" element={<Product_spec/>}/>
         </Routes>
         {/* <Footer /> */}
       </Router>
