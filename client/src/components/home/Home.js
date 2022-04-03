@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import Categories from "../categories/Categories";
 import SuggestedVendor from "../categories/SuggestedVendor";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
 import {
   Container,
   TextField,
@@ -10,7 +11,7 @@ import {
   MenuItem,
   FormControl,
   Select,
-  Grid
+  Grid,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
@@ -23,6 +24,8 @@ import { UserContext } from "../../userContext";
 import axios from "axios";
 
 const Home = () => {
+  const [lat, setLat] = useState("");
+  const [lon, setLon] = useState("");
   const [isTrue, setIsTrue] = useState(true);
   const [queryResultList, setQueryResultList] = useState([]);
   const [queryInput, setQueryInput] = useState("");
@@ -41,6 +44,38 @@ const Home = () => {
       console.log(err);
     }
   };
+
+  const [address, setAddress] = useState("");
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(displayLocationInfo, handleLocationError);
+  }
+  
+  function displayLocationInfo(position) {
+    const lng = position.coords.longitude;
+    const lat = position.coords.latitude;
+    setLat(lat)
+    setLon(lng)
+    console.log(`longitude: ${ lng } | latitude: ${ lat }`);
+  }
+
+  function handleLocationError(){
+    alert("We use your location info to show personlized content, which will be helpful for effective use of our service. Please change your setting to enable geo olocation")
+  }
+  var getAddress = async (lat, lon) => {
+    try {
+      var { data } = await axios.get(
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}1&longitude=${lon}&localityLanguage=en`
+      );
+
+      console.log(data);
+      setAddress(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getAddress(lat, lon);
 
   useEffect(() => {
     searchQuery();
@@ -168,6 +203,20 @@ const Home = () => {
         {/* <Button variant="filled" onClick={() => setIsTrue(false)}>Click me</Button> */}
         {isTrue ? (
           <div>
+            <div className="flex">
+              <MyLocationIcon
+                sx={{
+                  fontSize: 40,
+                  verticalAlign: "middle",
+                  padding: "5px",
+                  margin: "10px 2px",
+                }}
+              />
+              <h3 style={{ verticalAlign: "middle" }}>
+                {address.locality}, {address.principalSubdivision},
+                {address.countryName}
+              </h3>
+            </div>
             <h2 className="font-bold text-gray-700 text-2xl underline underline-offset-1">
               Suggested Categories
             </h2>
