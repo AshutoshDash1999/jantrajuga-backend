@@ -14,22 +14,50 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import "./navbar.css";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../userContext";
+import axios from "axios";
+import SearchQueryResult from "../searchResult/searchQueryResult"
 
 const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { user, dispatch } = useContext(UserContext);
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [search, setSearch] = useState("")
 
+  const handle = () => {
+    localStorage.setItem('Search', search);
+  }
+ 
   const handleLogout = () => {
     console.log(user);
     dispatch({ type: "LOGOUT" });
     console.log(user);
     navigate("/");
   };
+
+  const login = async () => {
+    try {
+      let { data } = await axios.post(
+        "https://machao-backend.herokuapp.com/search_products",
+        {
+          "name": name,
+        }
+      );
+      // console.log(data.result);
+        setSearch(data.result)
+        
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    login()
+  })
 
   return (
     <nav>
@@ -81,12 +109,20 @@ const Navbar = () => {
                 </Select>
               </FormControl>
               <TextField
-                style={{ marginRight: "1rem", width:"100%" }}
+                onChange={(e) => setName(e.target.value)}
+                onClick={(e) => {handle()}}
+                style={{ marginRight: "1rem", width: "100%" }}
                 id="standard-basic"
                 label="Search item"
                 variant="filled"
               />
-              <Button variant="contained" style={{padding: " 0.5rem 2.3rem", marginRight: "1rem"}}>Search</Button>
+              <Button
+                variant="contained"
+                style={{ padding: " 0.5rem 2.3rem", marginRight: "1rem" }}
+                onClick={e => {navigate("/searchQueryResult")}}
+              >
+                Search
+              </Button>
             </Stack>
 
             <Link to="/contact" className="nav-link">

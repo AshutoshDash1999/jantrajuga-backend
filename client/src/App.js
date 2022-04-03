@@ -17,6 +17,7 @@ import { UserContext } from './userContext';
 import VendorProductList from './components/vendor/VendorProductList';
 import GangotriHandlooms from './components/vendorProductListings.js/GangotriHandlooms/GangotriHandlooms';
 import GaddaElectronics from "./components/vendorProductListings.js/GaddaElectronics/GaddaElectronics"
+import SearchQueryResult from './components/searchResult/searchQueryResult';
 
 const initialState = {
   isAuthenticated: false,
@@ -72,6 +73,7 @@ export default function App() {
           <Route path='/vendor/login' element={<Vlogin />} />
           <Route path='/vendor/addProduct' element={<Vaddproduct/>} />
           <Route path="/searchResult" element={<SearchResult/>} />
+          <Route path="/searchQueryResult" element={<SearchQueryResult/>} />
           <Route path="/buypage" element={<Product_spec/>}/>
           <Route path="/vendorProductList/:vendorId" element={<VendorProductList/>}/>
           <Route path='./GangotriHandlooms' element={<GangotriHandlooms/>}/>
